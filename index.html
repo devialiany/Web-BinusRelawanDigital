@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRD | Binus Relawan Digital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="head_nav">
+            <img src="Assets/logoBinus.png" alt="">
+            <ul class="main_nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Vision</a></li>
+                <li><a href="#">Mission</a></li>
+                <li><a href="#">About Us</a></li>
+                <li class="is_active"><a href="#formRegis">Register</a></li>
+            </ul>
+        </div>
+
+        <div class="title">
+            <h1>
+                <ul>
+                    <br>
+                    <br>
+                    <br>
+                    <li>
+                        Are you Ready Binusian?
+                    </li>
+                    <li>One content Can Save The World</li>
+                    <hr>
+                    <li style="font-size: 34px">
+                        #StayAtHome #StopHoax #BinusianInfluencer
+                    </li>
+                    <br>
+                    <li >
+                        <span class="check_this">
+                            <a href="#formRegis">Participate Now</a>
+                        </span> 
+                    </li>
+                    <li>
+                            <div class="up_arrow">
+                                &raquo;
+                            </div>
+                    </li>
+                </ul>
+            </h1>
+        </div>
+    </header>
+    <span id="formRegis"></span>
+    <div class="content">
+        <div class="content_background">
+            <form name="RegisterForm" action="/actionpage.php" onsubmit="return valForm()">
+                <input type="text" name="tfNames" id="tfName" placeholder="Your Name">
+                <input type="text" name="tfNumPhones" id="tfNumPhone" placeholder="Your Number Mobile Phone">
+                <input type="text" name="tfEmails" id="tfEmail" placeholder="Your Email">
+                <textarea name="tfAddresses" id="tfAddress" cols="30" rows="5" placeholder="Your Full Address (Ex: Melati Street 7, Tangerang)"></textarea>
+                <label for="">Your Role :</label>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="role" id=""> Student <br>
+                &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="role" id=""> Lecturer <br>
+                &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="role" id=""> Staff <br>
+                <label for="">Social Media for Your Content:</label>
+                <br>
+                &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="socmed" id="cbFacebook" onclick="EnableDisableTfFb()"> Facebook &nbsp;<input class="inpSc" type="text" name="" id="tfFacebook" placeholder="The Link of Your Content" disabled="disabled" required><br>
+                &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="socmed" id="cbInstagram" onclick="EnableDisableTfIg()"> Instagram <input class="inpSc" type="text" name="" id="tfInstagram" placeholder="The Link of Your Content" disabled="disabled" required><br>
+                &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="socmed" id="cbYoutube" onclick="EnableDisableTfYt()"> Youtube &nbsp; &nbsp; <input class="inpSc" type="text" name="" id="tfYoutube" placeholder="The Link of Your Content" disabled="disabled" required><br>
+                &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="socmed" id="cbBlogger" onclick="EnableDisableTfBg()"> Blogger &nbsp; &nbsp; <input class="inpSc" type="text" name="" id="tfBlogger" placeholder="The Link of Your Content" disabled="disabled" required><br>
+                <div class="layoutBtn">
+                    <input class="btnRegister" type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <br>
+        <div class="nav_socmed">
+            For more Information
+            <br>
+            <br>
+            <ul>
+                <li><a href="mailto:brd.binus@gmail.com" target="__blank"><img src="Assets/google.png" alt=""></a></li>
+                <li><a href="http://line.me/ti/p/~@gabung_binus" target="__blank"><img src="Assets/line.png" alt=""></a></li>
+                <li><a href="https://www.instagram.com/binusuniversityofficial/" target="__blank"><img src="Assets/instagram.png" alt=""></a></li>
+                <li><a href="https://web.facebook.com/universitasbinanusantara/" target="__blank"><img src="Assets/facebook.png" alt=""></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=681584359490" target="__blank"><img src="Assets/whatsapp.png" alt=""></a></li>
+                <li><a href="https://www.youtube.com/channel/UCLxjqn6KmvveyFdh5GeObGw" target="__blank"><img src="Assets/youtube.png" alt=""></a></li>
+            </ul>
+        </div>
+        <br>
+        &copy; 2020 BRD | Binus Relawan Digital. All Rights Reserved.
+        <br>
+        Legal | Privacy Policy
+    </footer>
+    <script>
+        //beberapa contoh validasi form
+        var tfFacebook = document.getElementById("tfFacebook");
+        var tfInstagram = document.getElementById("tfInstagram");
+        var tfYoutube = document.getElementById("tfYoutube");
+        var tfBlogger= document.getElementById("tfBlogger");
+    
+        var names = document.forms["RegisterForm"]["tfNames"]
+        var np = document.forms["RegisterForm"]["tfNumPhones"]
+        var adr = document.forms["RegisterForm"]["tfAddresses"]
+        var ml = document.forms["RegisterForm"]["tfEmails"]
+    
+        var role = document.getElementsByName("role");
+        var roleValue = false;
+    
+        var socmed = document.getElementsByName("socmed")
+        var socmedValue = false;
+        
+        //untu validasi tetxtfield(kalau dipilih baru bisa di isi)
+        function EnableDisableTfFb(){
+            tfFacebook.disabled = cbFacebook.checked ? false : true;
+            if (!tfFacebook.disabled) {
+                tfFacebook.focus();
+                tfInstagram.disabled = true;
+                tfYoutube.disabled = true;
+                tfBlogger.disabled = true;
+            }
+        }
+    
+        function EnableDisableTfIg() {
+            tfInstagram.disabled = cbInstagram.checked ? false : true;
+            if (!tfInstagram.disabled) {
+                tfInstagram.focus();
+                tfFacebook.disabled = true;
+                tfYoutube.disabled = true;
+                tfBlogger.disabled = true;
+            }
+        }
+    
+        function EnableDisableTfYt() {
+            tfYoutube.disabled = cbYoutube.checked ? false : true;
+            if (!tfYoutube.disabled) {
+                tfYoutube.focus();
+                tfFacebook.disabled = true;
+                tfInstagram.disabled = true;
+                tfBlogger.disabled = true;
+            }
+        }
+    
+        function EnableDisableTfBg() {
+            tfBlogger.disabled = cbBlogger.checked ? false : true;
+            if (!tfBlogger.disabled) {
+                tfBlogger.focus();
+                tfFacebook.disabled = true;
+                tfInstagram.disabled = true;
+                tfYoutube.disabled = true;
+            }
+        }
+    
+        function valForm(){
+            if(names.value == ""){
+                window.alert("Name field must be filled!")
+                names.focus();
+                return false;
+            }
+            if(np.value == ""){
+                window.alert("Number Mobile Phone field must be filled!")
+                np.focus();
+                return false;
+            }
+            if(ml.value == ""){
+                window.alert("Address field must be filled!")
+                ml.focus();
+                return false;
+            }
+            if(adr.value == ""){
+                window.alert("Address field must be filled!")
+                adr.focus();
+                return false;
+            }
+    
+            for(var i=0; i<role.length;i++){
+                if(role[i].checked == true){
+                    roleValue = true;    
+                }
+            }
+
+            if(!roleValue){
+                alert("Please Choose One your Role");
+                return false;
+            }
+    
+            for(var i=0; i<socmed.length;i++){
+                if(socmed[i].checked == true){
+                    socmedValue = true;    
+                }
+            }
+            
+            if(!socmedValue){
+                alert("Please Choose One your Social Media to Share The Content");
+                return false;
+            }
+            if(name.value != "" && np.value != "" && ml.value != "" && adr.value != ""){
+                window.alert("Thank you for your participation. :)")
+            }
+        }
+    </script>
+</body>
+</html>
